@@ -1,0 +1,35 @@
+
+{
+  "name": "solid-ace",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/solid-ace.js",
+  "source": "./source/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "cross-env": "^7.0.3",
+    "json": "^11.0.0",
+    "prettier": "^2.6.2"
+  },
+  "scripts": {
+      
+    "build": "rm -rf dist && mkdir dist && cross-env NODE_ENV=production babel source -d dist",
+    "dev": "rm -rf dist && mkdir dist && babel source -d dist --watch",
+    "pretty": "prettier --write \"./**/*.js\"",
+    "prepub": "npm run build && npm run test && cp package.json dist && cp LICENSE.md dist && cp README.md dist && json -f dist/package.json -I -e 'delete this.bin; delete this.scripts; delete this.devDependencies;'",
+    "pub": "cd dist && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/L1lith/Liliths-Templates.git"
+  },
+  "files": [
+    "/dist/solid-ace.js",
+    "/dist/solid-ace.js.map"
+  ],
+  "keywords": [],
+  "author": "LILITH",
+  "license": "MIT"
+}
